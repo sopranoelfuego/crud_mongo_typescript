@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const SERVER_PORT = process.env.PORT || 7000;
+const SERVER_PORT = process.env.PORT;
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
 
 const SERVER = {
