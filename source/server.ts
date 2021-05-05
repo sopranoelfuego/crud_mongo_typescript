@@ -6,17 +6,21 @@ import { config as dotenv } from 'dotenv';
 import router from './routes';
 import cors from 'cors';
 import { loggerMiddleware } from './middlwares/requestLoggerMiddleware';
+import dbConnect from './config/db.config';
 
-// load variables
-dotenv();
 const app = express();
-console.log('this is env var', process.env.PORT);
 
 const NAMESPACE = 'server';
-app.use(cors());
+// load variables
+dotenv();
+// initiate database
+dbConnect();
+
 // logging
 app.use(loggerMiddleware);
 // middlware
+app.use(cors());
+app.use(express.json());
 app.use('/', router);
 // setting server
 
